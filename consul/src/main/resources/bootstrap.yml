@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: consul-hello
+        prefer-ip-address: true
+        health-check-interval: 5s
+  application:
+    name: consul
+server:
+  port: 8502
+
+info:
+  version: 1.0.0

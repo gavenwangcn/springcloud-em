@@ -1,0 +1,48 @@
+version: '2'
+services:
+  registry:
+    image: spring-cloud-em/registry
+    ports:
+      - "8761:8761"
+  config:
+    image: spring-cloud-em/config
+    ports:
+      - "4001:4001"
+  ribbon:
+    image: spring-cloud-em/ribbon
+    ports:
+      - "8764:8764"
+  fegin:
+    image: spring-cloud-em/fegin
+    ports:
+      - "8765:8765"
+  zuul:
+    image: spring-cloud-em/zuul
+    ports:
+      - "8767:8767"
+  turbine:
+    image: spring-cloud-em/turbine
+    ports:
+      - "8766:8766"
+  service-hello:
+    image: spring-cloud-em/service-hello
+    ports:
+      - "8762:8762"
+  service-hi:
+    image: spring-cloud-em/service-hi
+    ports:
+      - "8768:8768"
+  consul-server:
+    image: consul
+    container_name: consul_server
+    ports:
+      - "8500:8500"
+    command: consul agent -dev
+  consul:
+    image: spring-cloud-em/consul
+    ports:
+      - "8502:8502"
+  feginconsul:
+    image: spring-cloud-em/feginconsul
+    ports:
+      - "8900:8900"

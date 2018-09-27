@@ -1,0 +1,27 @@
+server:
+  port: 4001
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 10
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      retry:
+        initial-interval: 3000
+        multiplier: 1.5
+        max-interval: 20000
+        max-attempts: 6
+      server:
+        git:
+          uri: https://github.com/gavenwangcn/springcloudconfig.git
+          search-paths: respo
